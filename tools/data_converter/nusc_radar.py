@@ -37,7 +37,7 @@ def create_nuscenes_infos(root_path,
             Default: 10
     """
     from nuscenes.nuscenes import NuScenes
-    nusc = NuScenes(version=version, dataroot=root_path, verbose=True)
+    nusc = NuScenes(version=version, dataroot='/mnt/workspace/datasets/nuscenes', verbose=True)
     from nuscenes.utils import splits
     available_vers = ['v1.0-trainval', 'v1.0-test', 'v1.0-mini']
     assert version in available_vers
@@ -640,4 +640,4 @@ def generate_record(ann_rec: dict, x1: float, y1: float, x2: float, y2: float,
 if __name__ == '__main__':
     # create_nuscenes_infos('data/nuscenes/', 'track_radar')
 
-    create_nuscenes_infos('data/nuscenes/', 'radar_nuscenes_5sweeps', version='v1.0-test')
+    create_nuscenes_infos('/mnt/workspace/users/jingyuso/data', 'radar_nuscenes_5sweeps', version='v1.0-test')

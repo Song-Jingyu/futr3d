@@ -93,6 +93,7 @@ def parse_args():
 
 
 def main():
+    torch.multiprocessing.set_start_method('fork')
     args = parse_args()
 
     cfg = Config.fromfile(args.config)

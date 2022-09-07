@@ -1,6 +1,6 @@
 _base_ = [
-    '../../../../configs/_base_/datasets/nus-3d.py',
-    '../../../../configs/_base_/default_runtime.py'
+    '../../../../plugin/_base_/datasets/nus-3d.py',
+    '../../../../plugin/_base_/default_runtime.py'
 ]
 plugin=True
 plugin_dir='plugin/futr3d/'
@@ -159,7 +159,8 @@ model = dict(
         nms_thr=0.2)))
 
 dataset_type = 'NuScenesDataset'
-data_root = 'data/nuscenes/'
+# data_root = 'data/nuscenes/'
+data_root = '/mnt/workspace/datasets/nuscenes/'
 
 file_client_args = dict(backend='disk')
 
@@ -298,7 +299,7 @@ eval_pipeline = [
 
 data = dict(
     samples_per_gpu=8,
-    workers_per_gpu=8,
+    workers_per_gpu=16,
     train=dict(
         type='CBGSDataset',
         dataset=dict(
